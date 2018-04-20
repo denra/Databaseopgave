@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -193,6 +194,51 @@ namespace Wellmeadows_Hospital.DAL
                 HttpContext.Current.Response.Write(reader.GetString(15) + "<br/>");
                 HttpContext.Current.Response.Write(reader.GetInt32(16) + "<br/>");
                 HttpContext.Current.Response.Write(reader.GetDateTime(17) + "<br/>");
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
+        public void InsertStaff_StoredProcedure()
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            string connectionString = ConfigurationManager.ConnectionStrings["Wellmeadows_Hospital"].ConnectionString;
+
+            sqlConnection.ConnectionString = connectionString;
+
+            try
+            {
+                SqlCommand command = new SqlCommand("Insert_Staff", sqlConnection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@StaffNumber", "777f");
+                command.Parameters.AddWithValue("@FirstName", "John");
+                command.Parameters.AddWithValue("@LastName", "Hansen");
+                command.Parameters.AddWithValue("@Address", "Bornholmsgade 2 9000 Aalborg");
+                command.Parameters.AddWithValue("@Gender", "M");
+
+                DateTime date = new DateTime(1978, 4, 19);
+
+                command.Parameters.AddWithValue("@DateOfBirth", date);
+                command.Parameters.AddWithValue("@TlfNumber", "+45 987654321");
+                command.Parameters.AddWithValue("@InsuranceNumber", "YYn7534j");
+                command.Parameters.AddWithValue("@Position", "Portør");
+                command.Parameters.AddWithValue("@CurrentSalary", 22500);
+                command.Parameters.AddWithValue("@WhenPaid", "M");
+                command.Parameters.AddWithValue("@AllocatedToWard", 1);
+                command.Parameters.AddWithValue("@HoursPerWeek", 37.5);
+                command.Parameters.AddWithValue("@PermanentOrTemporary", "P");
+                command.Parameters.AddWithValue("@SalaryScale", "B4");
+
+                sqlConnection.Open();
+
+                command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {

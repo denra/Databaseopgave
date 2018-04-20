@@ -14,6 +14,7 @@ namespace Wellmeadows_Hospital.Controllers
             StaffRepository staff = new StaffRepository();
 
             staff.CreateStaff();
+            staff.InsertStaff_StoredProcedure();
             staff.UpdateStaff();
             staff.GetStaff();
             //staff.DeleteStaff();
