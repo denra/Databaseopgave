@@ -12,11 +12,12 @@ namespace Wellmeadows_Hospital.Controllers
         public ActionResult Index()
         {
             StaffRepository staff = new StaffRepository();
-
+            SuppliersRepository Supplier = new SuppliersRepository();
             staff.CreateStaff();
             staff.UpdateStaff();
             staff.GetStaff();
             //staff.DeleteStaff();
+
 
             return View();
         }
