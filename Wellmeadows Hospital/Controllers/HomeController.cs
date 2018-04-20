@@ -13,12 +13,15 @@ namespace Wellmeadows_Hospital.Controllers
         {
             StaffRepository staff = new StaffRepository();
             SuppliersRepository Supplier = new SuppliersRepository();
+
             staff.CreateStaff();
             staff.InsertStaff_StoredProcedure();
             staff.UpdateStaff();
             staff.GetStaff();
             //staff.DeleteStaff();
             staff.GetStaffView();
+
+            Supplier.CreateSupplier();
 
 
             return View();

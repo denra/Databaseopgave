@@ -18,17 +18,17 @@ namespace Wellmeadows_Hospital.DAL
 
             try
             {
-                sqlCommand command = sqlConnection.CreateCommand();
+                SqlCommand command = sqlConnection.CreateCommand();
 
                 command.CommandText = "INSERT INTO Suppliers (SupplierNumber, SupplierName, Address, Email, PhoneNumber, FaxNumber) " +
                     "VALUES (@SupplierNumber, @SupplierName, @Address, @Email, @PhoneNumber, @FaxNumber)";
 
-                command.Parameters.AddWithValues("@SupplierNumber", "d5f245");
-                command.Parameters.AddWithValues("@SupplierName", "Novo Nordisk");
-                command.Parameters.AddWithValues("@Address", "Novo Allé 2880 Bagsværd");
-                command.Parameters.AddWithValues("@PhoneNumber", "+45 44448888");
-                command.Parameters.AddWithValues("@Email", "test@mail.com");
-                command.Parameters.AddWithValues("@FaxNumber", "21654654");
+                command.Parameters.AddWithValue("@SupplierNumber", "d5f245");
+                command.Parameters.AddWithValue("@SupplierName", "Novo Nordisk");
+                command.Parameters.AddWithValue("@Address", "Novo Allé 2880 Bagsværd");
+                command.Parameters.AddWithValue("@PhoneNumber", "+45 44448888");
+                command.Parameters.AddWithValue("@Email", "test@mail.com");
+                command.Parameters.AddWithValue("@FaxNumber", "21654654");
 
                 sqlConnection.Open();
                 command.ExecuteNonQuery();
@@ -52,10 +52,10 @@ namespace Wellmeadows_Hospital.DAL
 
             try
             {
-                sqlCommand command = sqlConnection.CreateCommand();
+                SqlCommand command = sqlConnection.CreateCommand();
                 command.CommandText = "UPDATE Suppliers SET SupplierName = @SupplierName WHERE SupplierNumber = @SupplierNumber";
-                command.Parameters.AddWithValues("@SupplierName", "Novo");
-                command.Parameters.AddWithValues("@SupplierNumber", "d5f245");
+                command.Parameters.AddWithValue("@SupplierName", "Novo");
+                command.Parameters.AddWithValue("@SupplierNumber", "d5f245");
 
                 sqlConnection.Open();
                 command.ExecuteNonQuery();
@@ -78,7 +78,7 @@ namespace Wellmeadows_Hospital.DAL
 
             try
             {
-                sqlCommand command = sqlConnection.CreateCommand();
+                SqlCommand command = sqlConnection.CreateCommand();
                 command.CommandText = "SELECT * FROM Suppliers";
 
                 sqlConnection.Open();
@@ -111,7 +111,7 @@ namespace Wellmeadows_Hospital.DAL
 
             try
             {
-                sqlCommand command = sqlConnection.CreateCommand();
+                SqlCommand command = sqlConnection.CreateCommand();
                 command.CommandText = "DELETE FROM Supplier WHERE SupplierNumber = 'd5f245'";
 
                 sqlConnection.Open();
