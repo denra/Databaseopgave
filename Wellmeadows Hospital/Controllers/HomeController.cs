@@ -17,6 +17,7 @@ namespace Wellmeadows_Hospital.Controllers
             staff.UpdateStaff();
             staff.GetStaff();
             //staff.DeleteStaff();
+            staff.GetStaffView();
 
             return View();
         }

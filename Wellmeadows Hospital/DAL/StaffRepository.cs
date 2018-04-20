@@ -156,5 +156,52 @@ namespace Wellmeadows_Hospital.DAL
                 sqlConnection.Close();
             }
         }
+
+        public void GetStaffView()
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            string connectionString = ConfigurationManager.ConnectionStrings["Wellmeadows_Hospital"].ConnectionString;
+
+            sqlConnection.ConnectionString = connectionString;
+
+            try
+            {
+                SqlCommand command = sqlConnection.CreateCommand();
+
+                command.CommandText = "SELECT * FROM vwStaffWard";
+
+                sqlConnection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                reader.Read();
+
+                HttpContext.Current.Response.Write("<hr/>");
+                HttpContext.Current.Response.Write(reader.GetString(0) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetString(1) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetString(2) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetString(3) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetString(4) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetDateTime(5) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetString(6) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetString(7) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetString(8) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetDecimal(9) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetString(10) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetInt32(11) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetDecimal(12) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetString(13) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetString(14) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetString(15) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetInt32(16) + "<br/>");
+                HttpContext.Current.Response.Write(reader.GetDateTime(17) + "<br/>");
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
     }
 }
