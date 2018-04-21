@@ -18,6 +18,7 @@ namespace Wellmeadows_Hospital.Controllers
             staff.InsertStaff_StoredProcedure();
             staff.UpdateStaff();
             staff.GetStaff();
+            //staff.DeleteWardStaffAllocation();
             //staff.DeleteStaff();
             staff.GetStaffView();
 

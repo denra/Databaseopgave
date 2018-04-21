@@ -131,6 +131,33 @@ namespace Wellmeadows_Hospital.DAL
             }
         }
 
+        public void DeleteWardStaffAllocation()
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            string connectionString = ConfigurationManager.ConnectionStrings["Wellmeadows_Hospital"].ConnectionString;
+
+            sqlConnection.ConnectionString = connectionString;
+
+            try
+            {
+                SqlCommand command = sqlConnection.CreateCommand();
+
+                command.CommandText = "DELETE FROM WardStaffAllocation WHERE StaffNumber = '777f'";
+
+                sqlConnection.Open();
+                command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
         public void DeleteStaff()
         {
             SqlConnection sqlConnection = new SqlConnection();
