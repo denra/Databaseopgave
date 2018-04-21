@@ -112,7 +112,7 @@ namespace Wellmeadows_Hospital.DAL
             try
             {
                 SqlCommand command = sqlConnection.CreateCommand();
-                command.CommandText = "DELETE FROM Supplier WHERE SupplierNumber = 'd5f245'";
+                command.CommandText = "DELETE FROM Suppliers WHERE SupplierNumber = 'd5f245'";
 
                 sqlConnection.Open();
                 command.ExecuteNonQuery();
