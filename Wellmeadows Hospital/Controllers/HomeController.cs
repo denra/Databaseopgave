@@ -23,7 +23,9 @@ namespace Wellmeadows_Hospital.Controllers
             staff.GetStaffView();
 
             Supplier.CreateSupplier();
-
+            Supplier.UpdateSupplier();
+            Supplier.GetSupplier();
+            //Supplier.DeleteSupplier();
 
             return View();
         }
